@@ -1,0 +1,907 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='24' fill='%2307261f'/%3E%3Cg fill='none' stroke='%23cba55b' stroke-width='2' stroke-linecap='round'%3E%3Cpath d='M9 32c5-4 10-4 15 0s10 4 15 0'/%3E%3Cpath d='M13 28c3-6 7-9 11-9s8 3 11 9'/%3E%3Cpath d='M24 19V11M24 13c-3-3-7-3-10-1M24 13c3-3 7-3 10-1'/%3E%3C/g%3E%3C/svg%3E">
+<style>[hidden]{display:none!important}html{color-scheme:light}body{margin:0}</style>
+<title>Ilha da Moqueca</title>
+<meta name="description" content="Ilha da Moqueca, restaurante na Ilha das Caieiras, em Vitória (ES): moqueca capixaba, paellas, camarões, peixadas, frutos do mar e caipirinhas à beira-mar. Reserve pelo WhatsApp.">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="restaurant.restaurant">
+<meta property="og:title" content="Ilha da Moqueca | Ilha das Caieiras, Vitória – ES">
+<meta property="og:description" content="Sabores do Espírito Santo, com a essência da ilha. Moqueca capixaba, frutos do mar e caipirinhas à beira-mar.">
+<meta property="og:image" content="img/capa.jpg">
+<meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#05201a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Figtree:wght@400;500;600;700&display=swap">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Ilha da Moqueca","alternateName":"Restaurante Ilha da Moqueca | Ilha das Caieiras","servesCuisine":["Capixaba","Frutos do mar"],"telephone":"+55 27 99903-7895","address":{"@type":"PostalAddress","addressLocality":"Vitória","addressRegion":"ES","addressCountry":"BR","streetAddress":"Ilha das Caieiras"},"image":"img/hero.jpg","hasMenu":"#cardapio"}
+</script>
+
+<style>
+/* Layout: um único percurso vertical. Hero em tela cheia, faixa de caipirinhas em arcos dourados sobre verde profundo,
+   história em areia clara, galeria em colunas editoriais, reservas e localização, rodapé. Cardápio é uma segunda "aba" (#cardapio). */
+:root{
+  --esm-950:#05201a; --esm-900:#07261f; --esm-800:#0d3a2e; --esm-700:#14503f;
+  --olive:#8a8f55; --sand:#ecdfc6; --sand-2:#f4ecda; --cream:#fbf7ef;
+  --terra:#b6573a; --terra-dk:#94432a; --red:#c24a3f;
+  --gold:#cba55b; --gold-2:#e8cd8e;
+  --ink:#17251f; --ink-2:#45574e; --line:rgba(251,247,239,.14); --line-dk:rgba(23,37,31,.14);
+  --font-display:"Cormorant Garamond","Cormorant",Georgia,"Times New Roman",serif;
+  --font-body:"Figtree",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gl:max(16px, env(safe-area-inset-left,0px)); --gr:max(16px, env(safe-area-inset-right,0px));
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--esm-900);color:var(--cream);font:400 16px/1.65 var(--font-body);overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:70;background:var(--esm-950)}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:6px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-left:var(--gl);padding-right:var(--gr)}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3{font-family:var(--font-display);font-weight:500;line-height:1.04;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h1{font-size:clamp(2.6rem,8.4vw,5.4rem)}
+h2{font-size:clamp(2.1rem,5.6vw,3.7rem)}
+h3{font-size:1.55rem;line-height:1.15}
+em{font-style:italic;color:var(--gold-2)}
+.eyebrow{display:inline-flex;align-items:center;gap:12px;margin:0 0 18px;font-size:.78rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.eyebrow::before{content:"";width:34px;height:1px;background:currentColor}
+.lede{font-size:clamp(1.05rem,2.3vw,1.28rem);max-width:56ch;color:rgba(251,247,239,.86);margin:22px 0 0}
+
+/* ---------- botões ---------- */
+.btn{position:relative;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:50px;padding:13px 26px;border-radius:999px;border:1px solid transparent;font-weight:600;font-size:.98rem;text-decoration:none;cursor:pointer;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s,border-color .3s;-webkit-tap-highlight-color:transparent}
+.btn::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.35) 50%,transparent 70%);transform:translateX(-120%);transition:transform .7s var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:hover::after{transform:translateX(120%)}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn svg{width:20px;height:20px;flex:none}
+.btn--gold{background:var(--gold);color:var(--esm-950);box-shadow:0 10px 30px rgba(203,165,91,.25)}
+.btn--gold:hover{background:var(--gold-2);box-shadow:0 14px 36px rgba(203,165,91,.38)}
+.btn--ghost{border-color:rgba(251,247,239,.55);color:var(--cream);background:rgba(5,32,26,.25);backdrop-filter:blur(6px)}
+.btn--ghost:hover{border-color:var(--gold);color:var(--gold-2)}
+.btn--wa{background:#25d366;color:#05301a}
+.btn--wa:hover{background:#3be07a;box-shadow:0 12px 30px rgba(37,211,102,.3)}
+.btn--dark{background:var(--esm-800);color:var(--cream)}
+.btn--dark:hover{background:var(--esm-700)}
+.btn--line{border-color:var(--line-dk);color:var(--ink);background:transparent}
+.btn--line:hover{border-color:var(--terra);color:var(--terra-dk)}
+.btn--sm{min-height:42px;padding:9px 18px;font-size:.9rem}
+.cta-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+
+/* ---------- cabeçalho ---------- */
+.hdr{position:fixed;inset:0 0 auto;z-index:60;padding-top:env(safe-area-inset-top,0px);transition:background .4s,box-shadow .4s,backdrop-filter .4s}
+.hdr.is-scrolled,.hdr.is-open{background:rgba(5,32,26,.94);backdrop-filter:blur(12px);box-shadow:0 1px 0 var(--line)}
+.hdr__in{display:flex;align-items:center;gap:18px;min-height:74px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand svg{width:42px;height:42px;flex:none}
+.brand__t{display:grid;line-height:1.05}
+.brand__t b{font-family:var(--font-display);font-weight:600;font-size:1.45rem;letter-spacing:.01em}
+.brand__t small{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.nav{display:none;gap:4px}
+.nav a{position:relative;padding:10px 12px;text-decoration:none;font-size:.92rem;font-weight:500;color:rgba(251,247,239,.86);transition:color .25s}
+.nav a::after{content:"";position:absolute;left:12px;right:12px;bottom:4px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.nav a:hover,.nav a[aria-current="page"]{color:var(--gold-2)}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.hdr__cta{display:none}
+.burger{display:grid;place-content:center;gap:6px;width:48px;height:48px;border:1px solid var(--line);border-radius:50%;background:transparent;cursor:pointer}
+.burger span{display:block;width:20px;height:1.5px;background:var(--cream);transition:transform .35s var(--ease)}
+.hdr.is-open .burger span:first-child{transform:translateY(3.75px) rotate(45deg)}
+.hdr.is-open .burger span:last-child{transform:translateY(-3.75px) rotate(-45deg)}
+.mnav{display:grid;padding:6px var(--gr) 26px var(--gl)}
+.mnav a{padding:15px 4px;border-bottom:1px solid var(--line);text-decoration:none;font-family:var(--font-display);font-size:1.7rem}
+.mnav a[aria-current="page"]{color:var(--gold-2)}
+.mnav .btn{margin-top:20px;font-family:var(--font-body);font-size:1rem;border-bottom:0}
+@media(min-width:1040px){.nav{display:flex}.hdr__cta{display:inline-flex}.burger,.mnav{display:none!important}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;isolation:isolate;overflow:hidden;padding:clamp(138px,22vw,210px) 0 clamp(70px,10vw,130px)}
+.hero__media{position:absolute;inset:-6% 0;z-index:-2}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:68% 62%;will-change:transform}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(90deg,rgba(5,32,26,.9) 0%,rgba(5,32,26,.6) 38%,rgba(5,32,26,0) 68%),
+  linear-gradient(0deg,var(--esm-900) 0%,rgba(7,38,31,0) 38%),
+  linear-gradient(180deg,rgba(5,32,26,.6) 0%,rgba(5,32,26,0) 30%)}
+.hero .wrap{position:relative}
+.hero__txt{max-width:760px}
+.hero__txt>*{animation:rise 1s var(--ease) both}
+.hero__txt>:nth-child(2){animation-delay:.12s}.hero__txt>:nth-child(3){animation-delay:.26s}.hero__txt>:nth-child(4){animation-delay:.4s}
+.hero__arch{display:none}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+@media(min-width:960px){
+  .hero__arch{display:block;position:absolute;right:var(--gr);bottom:-20px;width:clamp(240px,24vw,320px);aspect-ratio:3/4;border-radius:999px 999px 24px 24px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.5),0 0 0 1px rgba(203,165,91,.6),0 0 0 9px rgba(5,32,26,.55);animation:rise 1.2s .5s var(--ease) both;will-change:transform}
+  .hero__arch img{width:100%;height:100%;object-fit:cover;object-position:46% 60%}
+}
+
+/* faixa de destaques */
+.facts{background:var(--esm-950);border-block:1px solid var(--line)}
+.facts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr}
+.facts li{padding:20px 14px;display:grid;gap:2px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.facts li:nth-child(2n){border-right:0}
+.facts b{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--gold-2)}
+.facts span{font-size:.86rem;color:rgba(251,247,239,.72);line-height:1.4}
+@media(min-width:860px){.facts ul{grid-template-columns:repeat(4,1fr)}.facts li{border-bottom:0;padding:26px 22px}.facts li:nth-child(2n){border-right:1px solid var(--line)}.facts li:last-child{border-right:0}}
+
+/* ---------- bandas ---------- */
+/* borrões de luz: manchas verdes mais claras sobre o verde profundo, em posições diferentes a cada seção */
+.band{position:relative;isolation:isolate}
+.band::before,#view-cardapio::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:var(--blobs)}
+#amesa{--blobs:radial-gradient(ellipse min(560px,110vw) min(400px,70vw) at 10% 14%,rgba(38,122,94,.34),transparent 70%),radial-gradient(ellipse min(420px,90vw) min(320px,60vw) at 94% 78%,rgba(98,156,110,.15),transparent 70%)}
+#historia{--blobs:radial-gradient(ellipse min(600px,110vw) min(440px,75vw) at 92% 10%,rgba(42,128,98,.32),transparent 70%),radial-gradient(ellipse min(400px,90vw) min(300px,60vw) at 6% 90%,rgba(138,143,85,.16),transparent 70%)}
+#galeria{--blobs:radial-gradient(ellipse min(640px,120vw) min(420px,70vw) at 4% 32%,rgba(34,112,86,.3),transparent 70%),radial-gradient(ellipse min(480px,100vw) min(360px,70vw) at 98% 84%,rgba(203,165,91,.09),transparent 70%)}
+#reservas{--blobs:radial-gradient(ellipse min(560px,110vw) min(380px,70vw) at 50% 0%,rgba(40,124,96,.26),transparent 70%),radial-gradient(ellipse min(420px,90vw) min(320px,60vw) at 4% 100%,rgba(98,156,110,.14),transparent 70%)}
+#localizacao{--blobs:radial-gradient(ellipse min(580px,110vw) min(420px,75vw) at 8% 20%,rgba(42,128,98,.3),transparent 70%),radial-gradient(ellipse min(440px,95vw) min(340px,65vw) at 96% 92%,rgba(138,143,85,.15),transparent 70%)}
+#view-cardapio{position:relative;isolation:isolate;--blobs:radial-gradient(ellipse min(560px,110vw) min(420px,70vw) at 94% 22%,rgba(40,124,96,.28),transparent 70%),radial-gradient(ellipse min(520px,110vw) min(400px,70vw) at 2% 52%,rgba(98,156,110,.14),transparent 70%),radial-gradient(ellipse min(560px,110vw) min(420px,70vw) at 90% 88%,rgba(34,112,86,.26),transparent 70%)}
+.ftr{position:relative;isolation:isolate}
+.ftr::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse min(520px,110vw) min(360px,70vw) at 12% 0%,rgba(38,122,94,.22),transparent 70%)}
+
+.band{padding-block:clamp(70px,10vw,124px)}
+.band--sand{background:#0a2f26;color:var(--cream)}
+.band--deep{background:var(--esm-950)}
+.sec-head{display:grid;gap:0;margin-bottom:clamp(34px,5vw,58px);max-width:780px}
+.rv{opacity:.3;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* ---------- trilhos horizontais (arrastar para o lado) ---------- */
+.rail{position:relative}
+.rail__head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:14px}
+.rail__ctl{display:flex;gap:10px;flex:none}
+.rail__btn{display:grid;place-content:center;width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(251,247,239,.05);color:var(--cream);cursor:pointer;transition:background .3s,border-color .3s,color .3s,opacity .3s,transform .35s var(--ease)}
+.rail__btn svg{width:20px;height:20px}
+.rail__btn:hover:not(:disabled){background:var(--gold);border-color:var(--gold);color:var(--esm-950);transform:scale(1.07)}
+.rail__btn:disabled{opacity:.28;cursor:default}
+.rail__hint{margin:0;font-size:.84rem;color:rgba(251,247,239,.62);display:flex;align-items:center;gap:8px}
+.rail__hint svg{width:22px;height:22px;color:var(--gold)}
+.rail__track{display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+  margin-inline:calc(-1 * var(--gl)) calc(-1 * var(--gr));padding:8px var(--gr) 24px var(--gl);scroll-padding-inline:var(--gl);cursor:grab;-webkit-overflow-scrolling:touch}
+.rail__track::-webkit-scrollbar{display:none}
+.rail__track>*{flex:0 0 auto;scroll-snap-align:start}
+.rail__track.drag{scroll-snap-type:none;cursor:grabbing}
+.rail__track.drag *{pointer-events:none}
+.rail__bar{height:3px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:-8px}
+.rail__bar i{display:block;height:100%;width:30%;border-radius:3px;background:var(--gold);transition:margin-left .12s linear}
+.rail--fit .rail__ctl,.rail--fit .rail__bar,.rail--fit .rail__hint{visibility:hidden}
+.fcard{position:relative;display:block;width:min(78vw,340px);aspect-ratio:4/5;border-radius:26px;overflow:hidden;background:var(--esm-800);text-decoration:none;isolation:isolate;box-shadow:0 18px 44px rgba(0,0,0,.3)}
+.fcard img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--ease);-webkit-user-drag:none;user-select:none}
+.fcard:hover img{transform:scale(1.07)}
+.fcard::after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(0deg,rgba(5,32,26,.92) 0%,rgba(5,32,26,.15) 52%,rgba(5,32,26,0) 100%)}
+.fcard__t{position:absolute;z-index:1;left:22px;right:22px;bottom:22px;display:grid;gap:4px}
+.fcard__t b{font-family:var(--font-display);font-size:1.9rem;font-weight:600;line-height:1.08}
+.fcard__t span{font-size:.9rem;color:rgba(251,247,239,.84)}
+.fcard__go{position:absolute;z-index:1;top:16px;right:16px;display:grid;place-content:center;width:42px;height:42px;border-radius:50%;background:rgba(5,32,26,.55);backdrop-filter:blur(6px);border:1px solid rgba(251,247,239,.3);transition:background .3s,color .3s,transform .4s var(--ease)}
+.fcard:hover .fcard__go{background:var(--gold);color:var(--esm-950);transform:rotate(-45deg)}
+.fcard__go svg{width:18px;height:18px}
+.feat-foot{margin-top:10px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+@media(min-width:900px){.fcard{width:360px}}
+
+/* ---------- banner das caipirinhas ---------- */
+.bar{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(70px,10vw,120px)}
+.bar__bg{position:absolute;inset:-10%;z-index:-2}
+.bar__bg img{width:100%;height:100%;object-fit:cover;filter:blur(38px) saturate(.9) brightness(.34);transform:scale(1.15)}
+.bar::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,var(--esm-900) 0%,rgba(5,32,26,.52) 20%,rgba(5,32,26,.52) 80%,var(--esm-950) 100%)}
+.bar__grid{display:grid;gap:40px;grid-template-areas:"head" "stage" "info"}
+.bar__head{grid-area:head}
+.bar__stage{grid-area:stage}
+.bar__info{grid-area:info}
+@media(min-width:920px){
+  .bar__grid{grid-template-columns:1fr minmax(320px,400px);grid-template-areas:"head stage" "info stage";column-gap:clamp(40px,7vw,100px);align-items:center}
+}
+.stage{position:relative;display:grid;justify-items:center;gap:26px}
+.arch{position:relative;width:min(100%,340px);aspect-ratio:3/4;border-radius:999px 999px 26px 26px;overflow:hidden;background:#050a08;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;
+  box-shadow:0 34px 80px rgba(0,0,0,.55),0 0 0 1px rgba(203,165,91,.6),0 0 0 9px rgba(5,32,26,.65),0 0 0 10px rgba(203,165,91,.22)}
+.arch:active{cursor:grabbing}
+.slide{position:absolute;inset:0;opacity:0;transform:scale(1.07);transition:opacity .8s ease,transform 1.5s var(--ease);pointer-events:none}
+.slide.on{opacity:1;transform:scale(1)}
+.arch:hover .slide.on{transform:scale(1.07)}
+.slide img,.slide svg{width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
+.glint{position:absolute;inset:0;pointer-events:none;background:linear-gradient(112deg,transparent 36%,rgba(255,255,255,.2) 48%,transparent 60%);mix-blend-mode:screen;transform:translateX(-130%);animation:glint 8s 1.5s ease-in-out infinite}
+@keyframes glint{0%,55%{transform:translateX(-130%)}85%,100%{transform:translateX(130%)}}
+.drops{position:absolute;inset:0;pointer-events:none}
+.drops i{position:absolute;width:6px;height:9px;border-radius:50% 50% 50% 50%/60% 60% 40% 40%;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.95),rgba(255,255,255,.28) 55%,rgba(255,255,255,0) 72%);opacity:0;animation:drip 7s ease-in infinite}
+@keyframes drip{0%{opacity:0;transform:translateY(0)}12%{opacity:.85}70%{opacity:.7;transform:translateY(34px)}100%{opacity:0;transform:translateY(46px)}}
+.fruit{position:absolute;top:-6px;right:max(-8px,calc(50% - 232px));width:86px;height:86px;animation:bob 7s ease-in-out infinite;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45));pointer-events:none}
+.fruit svg{width:100%;height:100%}
+.fruit--b{top:auto;bottom:70px;left:max(-6px,calc(50% - 238px));right:auto;width:56px;height:56px;animation-delay:-3s;animation-duration:9s}
+.fruit .rind{fill:var(--f1);transition:fill .8s}.fruit .flesh{fill:var(--f2);transition:fill .8s}.fruit .seg{stroke:var(--f3);transition:stroke .8s}
+@keyframes bob{0%,100%{transform:translateY(0) rotate(-6deg)}50%{transform:translateY(-10px) rotate(6deg)}}
+.hint{margin:-8px 0 0;font-size:.82rem;color:rgba(251,247,239,.62);text-align:center}
+.glasses{display:flex;gap:14px;justify-content:center;max-width:100%;overflow-x:auto;padding:14px 8px 6px;scroll-snap-type:x mandatory;scrollbar-width:none}
+.glasses::-webkit-scrollbar{display:none}
+.gbtn{flex:0 0 auto;display:grid;justify-items:center;gap:9px;min-width:72px;padding:0;background:none;border:0;cursor:pointer;scroll-snap-align:center;-webkit-tap-highlight-color:transparent}
+.gbtn__img{display:block;width:66px;height:86px;border-radius:999px 999px 12px 12px;overflow:hidden;background:#050a08;box-shadow:0 0 0 1px rgba(203,165,91,.35);transition:transform .4s var(--ease),box-shadow .4s}
+.gbtn__img img,.gbtn__img svg{width:100%;height:100%;object-fit:cover;display:block}
+.gbtn__lbl{font-size:.74rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,247,239,.7);transition:color .3s}
+.gbtn:hover .gbtn__img,.gbtn:focus-visible .gbtn__img{transform:translateY(-7px) scale(1.07)}
+.gbtn[aria-pressed="true"] .gbtn__img{transform:translateY(-7px) scale(1.07);box-shadow:0 0 0 2px var(--gold),0 14px 30px rgba(0,0,0,.5)}
+.gbtn[aria-pressed="true"] .gbtn__lbl,.gbtn:hover .gbtn__lbl{color:var(--gold-2)}
+.dr{display:grid;gap:12px;margin-top:6px;padding-top:26px;border-top:1px solid var(--line)}
+.dr.anim>*{animation:rise .7s var(--ease) both}
+.dr.anim>:nth-child(2){animation-delay:.08s}.dr.anim>:nth-child(3){animation-delay:.16s}.dr.anim>:nth-child(4){animation-delay:.24s}
+.dr__count{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0}
+.dr h3{font-size:clamp(1.9rem,4.4vw,2.7rem)}
+.dr__ing{margin:0;font-size:.92rem;font-weight:600;color:var(--gold-2)}
+.dr__txt{margin:0;max-width:46ch;color:rgba(251,247,239,.84)}
+.dr .btn{justify-self:start;margin-top:10px}
+
+/* ---------- nossa história ---------- */
+.story{display:grid;gap:46px;align-items:center}
+.story p.big{font-size:clamp(1.1rem,2.2vw,1.32rem);line-height:1.7;color:rgba(251,247,239,.84);margin:26px 0 0;max-width:52ch}
+.collage{position:relative;min-height:440px}
+.collage .a,.collage .b{position:absolute;margin:0;overflow:hidden;box-shadow:0 26px 60px rgba(23,37,31,.28)}
+.collage img{width:100%;height:100%;object-fit:cover}
+.collage .a{left:0;top:0;width:66%;aspect-ratio:3/4;border-radius:999px 999px 22px 22px}
+.collage .b{right:0;bottom:0;width:60%;aspect-ratio:4/3.4;border-radius:22px;border:7px solid #0a2f26}
+.collage .c{position:absolute;right:6%;top:6%;width:96px;height:96px;display:grid;place-content:center;text-align:center;border-radius:50%;background:var(--terra);color:var(--cream);font-family:var(--font-display);font-size:.95rem;line-height:1.1;font-style:italic;padding:12px;transform:rotate(8deg);box-shadow:0 12px 30px rgba(148,67,42,.4)}
+@media(min-width:900px){.story{grid-template-columns:1fr 1.05fr;gap:clamp(48px,8vw,110px)}.collage{min-height:560px}}
+@media(max-width:480px){.collage{min-height:400px}.collage .c{width:82px;height:82px;font-size:.82rem}}
+
+/* ---------- galeria ---------- */
+.gal{columns:2;column-gap:12px}
+.gal figure{position:relative;break-inside:avoid;margin:0 0 12px;border-radius:16px;overflow:hidden;background:var(--esm-800);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.gal button{display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in;position:relative}
+.gal img{width:100%;object-fit:cover;transition:transform 1.2s var(--ease),filter .6s}
+.gal .r-t img{aspect-ratio:4/5}.gal .r-s img{aspect-ratio:1/1}.gal .r-w img{aspect-ratio:3/2}
+.gal button:hover img{transform:scale(1.06)}
+.gal .lbl{position:absolute;left:10px;bottom:10px;padding:5px 12px;border-radius:999px;background:rgba(5,32,26,.78);backdrop-filter:blur(6px);font-size:.72rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2)}
+@media(min-width:760px){.gal{columns:3;column-gap:16px}.gal figure{margin-bottom:16px;border-radius:20px}}
+.lb{position:fixed;inset:0;z-index:90;display:grid;grid-template-rows:1fr auto;background:rgba(3,15,12,.94);padding:env(safe-area-inset-top,0px) var(--gr) env(safe-area-inset-bottom,0px) var(--gl)}
+.lb__stage{display:grid;place-items:center;min-height:0;padding:56px 0 8px}
+.lb img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 0 18px}
+.lb__cap{margin:0;font-family:var(--font-display);font-size:1.3rem;color:var(--gold-2)}
+.lb button{width:48px;height:48px;border-radius:50%;border:1px solid var(--line);background:rgba(251,247,239,.06);cursor:pointer;font-size:1.3rem;line-height:1;transition:background .3s}
+.lb button:hover{background:rgba(251,247,239,.16)}
+.lb__x{position:absolute;top:calc(env(safe-area-inset-top,0px) + 12px);right:var(--gr)}
+.lb__nav{display:flex;gap:10px}
+
+/* ---------- reservas ---------- */
+.res{display:grid;gap:16px}
+.res a.card{display:grid;gap:10px;align-content:start;padding:26px 24px 24px;border-radius:22px;background:linear-gradient(160deg,var(--esm-800),var(--esm-900));border:1px solid var(--line);text-decoration:none;transition:transform .45s var(--ease),border-color .3s,box-shadow .45s}
+.res a.card:hover{transform:translateY(-6px);border-color:rgba(203,165,91,.6);box-shadow:0 24px 50px rgba(0,0,0,.35)}
+.res .ic{display:grid;place-content:center;width:50px;height:50px;border-radius:50%;background:rgba(203,165,91,.14);color:var(--gold)}
+.res .ic svg{width:24px;height:24px}
+.res h3{font-size:1.55rem}
+.res p{margin:0;color:rgba(251,247,239,.76);font-size:.95rem}
+.res .go{margin-top:8px;display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--gold-2);font-size:.95rem}
+@media(min-width:700px){.res{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1100px){.res{grid-template-columns:repeat(4,1fr)}}
+.numline{margin-top:34px;display:flex;flex-wrap:wrap;gap:12px 18px;align-items:center;color:rgba(251,247,239,.8)}
+.numline b{font-family:var(--font-display);font-size:1.7rem;color:var(--cream);letter-spacing:.02em;user-select:all}
+.copy{min-height:42px;padding:8px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-size:.88rem;font-weight:600;transition:border-color .3s,color .3s}
+.copy:hover{border-color:var(--gold);color:var(--gold-2)}
+
+/* ---------- localização ---------- */
+.loc{display:grid;gap:40px;align-items:stretch}
+.loc__info{display:grid;gap:0;align-content:center}
+.addr{margin:28px 0 0;display:grid;gap:18px}
+.addr div{display:grid;gap:3px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.addr dt{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.addr dd{margin:0;font-size:1.08rem}
+.addr dd small{display:block;color:rgba(251,247,239,.68);font-size:.88rem}
+.loc .cta-row{margin-top:26px}
+.mapcard{position:relative;min-height:380px;border-radius:26px;overflow:hidden;isolation:isolate;box-shadow:0 30px 70px rgba(23,37,31,.28)}
+.mapcard>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.mapcard::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(5,32,26,.92) 0%,rgba(5,32,26,.1) 55%,rgba(5,32,26,.25) 100%)}
+.mapcard__in{position:absolute;left:0;right:0;bottom:0;padding:26px;display:grid;gap:14px;justify-items:start;color:var(--cream)}
+.mapcard__in b{font-family:var(--font-display);font-size:1.9rem;font-weight:600;line-height:1.1}
+.pin{position:absolute;left:50%;top:38%;width:46px;height:46px;transform:translate(-50%,-50%)}
+.pin::before,.pin::after{content:"";position:absolute;inset:0;border-radius:50%;background:rgba(194,74,63,.45);animation:ping 2.8s var(--ease) infinite}
+.pin::after{animation-delay:1.4s}
+.pin i{position:absolute;inset:11px;border-radius:50%;background:var(--red);border:3px solid var(--cream);z-index:1}
+@keyframes ping{0%{transform:scale(.5);opacity:.9}100%{transform:scale(2.2);opacity:0}}
+@media(min-width:900px){.loc{grid-template-columns:1fr 1.1fr}.mapcard{min-height:520px}}
+
+/* ---------- cardápio ---------- */
+.mhero{padding:clamp(130px,17vw,190px) 0 30px;background:radial-gradient(900px 400px at 85% 0%,rgba(203,165,91,.14),transparent 70%),var(--esm-900)}
+.msearch{position:relative;display:block;margin-top:30px;max-width:460px}
+.msearch svg{position:absolute;left:16px;top:50%;width:20px;height:20px;transform:translateY(-50%);color:var(--gold);pointer-events:none}
+.msearch input{width:100%;min-height:52px;padding:0 18px 0 46px;border-radius:999px;border:1px solid var(--line);background:rgba(251,247,239,.06);color:var(--cream);font:inherit;transition:border-color .3s,background .3s}
+.msearch input::placeholder{color:rgba(251,247,239,.5)}
+.msearch input:focus{outline:none;border-color:var(--gold);background:rgba(251,247,239,.1)}
+.mbar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 74px);z-index:40;background:rgba(7,38,31,.93);backdrop-filter:blur(12px);border-block:1px solid var(--line)}
+.chips{display:flex;gap:8px;padding-block:12px;overflow-x:auto;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:0 0 auto;min-height:44px;padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;font-weight:600;font-size:.92rem;white-space:nowrap;transition:background .3s,color .3s,border-color .3s,transform .3s var(--ease)}
+.chip:hover{border-color:var(--gold);transform:translateY(-1px)}
+.chip[aria-pressed="true"]{background:var(--gold);color:var(--esm-950);border-color:var(--gold)}
+.chip small{opacity:.7;font-weight:500;margin-left:4px}
+.mrow{padding-top:clamp(34px,5vw,58px)}
+.mrow .rail__head h2{font-size:clamp(1.9rem,4.4vw,2.7rem)}
+.mrow .tag{margin-bottom:6px}
+.mcard{display:grid;grid-template-rows:auto 1fr;width:min(78vw,300px);border-radius:24px;overflow:hidden;background:var(--esm-800);border:1px solid var(--line);transition:transform .5s var(--ease),box-shadow .5s,border-color .3s;animation:rise .6s var(--ease) both}
+.mcard:hover{transform:translateY(-5px);box-shadow:0 26px 54px rgba(0,0,0,.4);border-color:rgba(203,165,91,.5)}
+.mcard__ph{position:relative;aspect-ratio:4/3.3;overflow:hidden;background:var(--esm-700)}
+.mcard__ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease);-webkit-user-drag:none;user-select:none}
+.mcard:hover .mcard__ph img{transform:scale(1.07)}
+.mcard__ph.noimg{display:grid;place-content:center;background:radial-gradient(circle at 30% 20%,var(--esm-700),var(--esm-950))}
+.mcard__ph.noimg svg{width:84px;height:84px;color:var(--gold)}
+.mcard__b{display:grid;gap:8px;align-content:start;padding:18px 20px 20px}
+.mcard h3{font-size:1.5rem}
+.tag{margin:0;font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.mcard p.d{margin:0;color:rgba(251,247,239,.76);font-size:.93rem}
+.mcard__f{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-top:8px;padding-top:14px;border-top:1px solid var(--line)}
+.price{font-family:var(--font-display);font-size:1.3rem;font-weight:600;color:var(--cream)}
+.price--ask{font-family:var(--font-body);font-size:.84rem;font-weight:500;color:rgba(251,247,239,.62)}
+.mempty{margin:50px 0 20px;padding:34px 24px;text-align:center;border:1px dashed rgba(203,165,91,.5);border-radius:22px;color:rgba(251,247,239,.8)}
+.mnote{margin:34px 0 0;padding:20px 22px;border:1px dashed rgba(203,165,91,.5);border-radius:18px;color:rgba(251,247,239,.8);font-size:.95rem}
+@media(min-width:1000px){.mcard{width:320px}}
+
+/* ---------- rodapé ---------- */
+.ftr{background:var(--esm-950);border-top:1px solid var(--line);padding:clamp(56px,8vw,90px) 0 34px}
+.ftr__grid{display:grid;gap:38px}
+@media(min-width:820px){.ftr__grid{grid-template-columns:1.5fr 1fr 1fr 1fr}}
+.ftr p{margin:14px 0 0;color:rgba(251,247,239,.72);max-width:38ch;font-size:.95rem}
+.ftr h4{margin:0 0 14px;font-size:.76rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.ftr li a{display:inline-block;padding:7px 0;text-decoration:none;color:rgba(251,247,239,.82);transition:color .25s,transform .3s var(--ease)}
+.ftr li a:hover{color:var(--gold-2);transform:translateX(4px)}
+.ftr__end{margin-top:50px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;align-items:center}
+.ftr__end q{quotes:none;font-family:var(--font-display);font-style:italic;font-size:1.35rem;color:var(--gold-2)}
+.ftr__end small{color:rgba(251,247,239,.55)}
+
+/* ---------- WhatsApp flutuante ---------- */
+.wafab{position:fixed;z-index:55;right:calc(var(--gr) + 2px);bottom:calc(env(safe-area-inset-bottom,0px) + 18px);display:flex;align-items:center;gap:10px;height:60px;min-width:60px;padding:0 18px;border-radius:999px;background:#25d366;color:#05301a;text-decoration:none;font-weight:700;box-shadow:0 14px 34px rgba(0,0,0,.4);transition:transform .4s var(--ease),box-shadow .4s}
+.wafab:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 20px 44px rgba(37,211,102,.4)}
+.wafab svg{width:30px;height:30px;flex:none}
+.wafab span{display:none}
+.wafab::before{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid #25d366;animation:ping 3.2s var(--ease) infinite;pointer-events:none}
+@media(min-width:700px){.wafab span{display:inline}}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+
+</head>
+<body>
+<header class="hdr" id="hdr">
+  <div class="wrap hdr__in">
+    <a class="brand" href="#inicio" aria-label="Ilha da Moqueca, início">
+      <svg viewBox="0 0 48 48" fill="none" stroke="#cba55b" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="22.5"/><path d="M9 32c5-4 10-4 15 0s10 4 15 0"/><path d="M13 28c3-6 7-9 11-9s8 3 11 9"/><path d="M24 19V11M24 13c-3-3-7-3-10-1M24 13c3-3 7-3 10-1"/></svg>
+      <span class="brand__t"><b>Ilha da Moqueca</b><small>Ilha das Caieiras</small></span>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#inicio" data-nav="inicio">Início</a>
+      <a href="#cardapio" data-nav="cardapio">Cardápio</a>
+      <a href="#caipirinhas" data-nav="caipirinhas">Caipirinhas</a>
+      <a href="#historia" data-nav="historia">Nossa história</a>
+      <a href="#galeria" data-nav="galeria">Galeria</a>
+      <a href="#localizacao" data-nav="localizacao">Localização</a>
+      <a href="#reservas" data-nav="reservas">Reservas</a>
+    </nav>
+    <a class="btn btn--gold btn--sm hdr__cta" data-wa="reserva" href="https://wa.me/5527999037895" target="_blank" rel="noopener">Reservar mesa</a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Abrir menu"><span></span><span></span></button>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Menu móvel" hidden>
+    <a href="#inicio">Início</a>
+    <a href="#cardapio" data-nav="cardapio">Cardápio</a>
+    <a href="#caipirinhas">Caipirinhas</a>
+    <a href="#historia">Nossa história</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#localizacao">Localização</a>
+    <a href="#reservas">Reservas</a>
+    <a class="btn btn--gold" data-wa="reserva" href="https://wa.me/5527999037895" target="_blank" rel="noopener">Reservar pelo WhatsApp</a>
+  </nav>
+</header>
+
+<!-- =============== INÍCIO =============== -->
+<main id="view-home">
+  <section class="hero" id="inicio" aria-labelledby="h-hero">
+    <div class="hero__media"><img id="heroImg" src="img/capa.jpg" alt="Drink gelado de morango em uma mesa de frente para a baía da Ilha das Caieiras, com guarda-sóis, mesas de toalha verde e céu azul" fetchpriority="high" width="1460" height="1078"></div>
+    <div class="wrap">
+      <div class="hero__txt">
+        <p class="eyebrow">Ilha das Caieiras · Vitória – ES</p>
+        <h1 id="h-hero">Sabores do Espírito Santo, <em>com a essência da ilha.</em></h1>
+        <p class="lede">Uma experiência gastronômica à beira-mar, onde a tradição capixaba encontra o frescor dos nossos frutos do mar.</p>
+        <div class="cta-row">
+          <a class="btn btn--gold" href="#cardapio">Conheça nosso cardápio</a>
+          <a class="btn btn--ghost" data-wa="reserva" href="https://wa.me/5527999037895" target="_blank" rel="noopener">Reserve sua mesa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="facts" aria-label="Destaques">
+    <div class="wrap">
+      <ul>
+        <li><b>Moqueca capixaba</b><span>Servida na panela de barro</span></li>
+        <li><b>Frutos do mar</b><span>Camarões, peixadas e paellas</span></li>
+        <li><b>Caipirinhas e drinks</b><span>Gelados, para o calor da ilha</span></li>
+        <li><b>Beira-mar</b><span>Mesas com vista para as águas</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="amesa" aria-labelledby="h-feat">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">À mesa</p>
+        <h2 id="h-feat">Da panela de barro para a mesa, <em>de frente para a ilha.</em></h2>
+      </div>
+      <div class="rail rv" data-rail>
+        <div class="rail__head"><p class="rail__hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h14M13 8l4 4-4 4"/></svg>Arraste para o lado</p><div class="rail__ctl"><button class="rail__btn" type="button" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="rail__btn" type="button" data-next aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+        <div class="rail__track">
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/moqueca_barro.jpg" alt="Moqueca capixaba em panela de barro com acompanhamentos" width="720" height="538" style="object-position:40% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Moqueca capixaba</b><span>O prato que dá nome à casa</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/paella_topo.jpg" alt="Paella de frutos do mar vista de cima" width="720" height="538" style="object-position:50% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Paellas</b><span>Frutos do mar na panela</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/peixada.jpg" alt="Travessas de peixe frito com camarões, arroz e fritas" width="720" height="538" style="object-position:50% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Peixadas</b><span>Para dividir à mesa</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/hero.jpg" alt="Camarões na panela de barro diante da baía" width="720" height="538" style="object-position:50% 60%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Camarões</b><span>Direto da panela de barro</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/coco.jpg" alt="Camarão servido dentro de um coco verde, com batata frita e cerveja" width="720" height="538" style="object-position:40% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Camarão no coco</b><span>Servido no coco, bem gelado ao lado</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/moqueca_peixe.jpg" alt="Moqueca de peixe na panela de barro com a praia ao fundo" width="720" height="538" style="object-position:50% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Moqueca de peixe</b><span>Ao estilo capixaba</span></span></a>
+        <a class="fcard" href="#cardapio" draggable="false"><img loading="lazy" decoding="async" draggable="false" src="img/porcao_mista.jpg" alt="Porção com peixe empanado, fritas e banana frita" width="720" height="538" style="object-position:50% 50%"><span class="fcard__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><span class="fcard__t"><b>Porções e petiscos</b><span>Para beliscar e dividir</span></span></a>
+        </div>
+        <div class="rail__bar" aria-hidden="true"><i></i></div>
+      </div>
+      <div class="feat-foot rv">
+        <a class="btn btn--gold" href="#cardapio">Ver o cardápio completo</a>
+        <a class="btn btn--ghost" data-wa="disponibilidade" href="https://wa.me/5527999037895" target="_blank" rel="noopener">Consultar disponibilidade</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAIPIRINHAS -->
+  <section class="bar" id="caipirinhas" aria-labelledby="h-bar" data-i="0">
+    <div class="bar__bg" aria-hidden="true"><img src="img/caip_dourada.jpg" alt="" loading="lazy" decoding="async"></div>
+    <div class="wrap">
+      <div class="bar__grid">
+        <div class="bar__head rv">
+          <p class="eyebrow">Drinks clássicos</p>
+          <h2 id="h-bar">Caipirinhas geladas, <em>de frente para a ilha.</em></h2>
+          <p class="lede">Escolha um copo. Passe o mouse ou toque para ver o sabor e, no celular, arraste a imagem para trocar.</p>
+        </div>
+        <div class="bar__stage">
+          <div class="stage">
+            <div class="fruit" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="rind" cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="40" fill="#f6f1de"/><circle class="flesh" cx="50" cy="50" r="35"/><g class="seg" stroke-width="2.2" stroke-linecap="round"><path d="M50 50V15M50 50l25-25M50 50h35M50 50l25 25M50 50v35M50 50L25 75M50 50H15M50 50L25 25"/></g></svg></div>
+            <div class="fruit fruit--b" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="rind" cx="50" cy="50" r="46"/><circle cx="50" cy="50" r="40" fill="#f6f1de"/><circle class="flesh" cx="50" cy="50" r="35"/><g class="seg" stroke-width="3" stroke-linecap="round"><path d="M50 50V15M50 50l25-25M50 50h35M50 50l25 25M50 50v35M50 50L25 75M50 50H15M50 50L25 25"/></g></svg></div>
+            <div class="arch" id="arch" aria-roledescription="carrossel" aria-label="Fotos das caipirinhas">
+              <div id="slides"></div>
+              <div class="drops" aria-hidden="true">
+                <i style="left:36%;top:52%;animation-delay:0s"></i><i style="left:44%;top:60%;animation-delay:2.1s;animation-duration:8s"></i><i style="left:52%;top:50%;animation-delay:4s"></i><i style="left:58%;top:64%;animation-delay:1.2s;animation-duration:9s"></i><i style="left:40%;top:70%;animation-delay:5.2s"></i><i style="left:62%;top:56%;animation-delay:3.3s;animation-duration:6.5s"></i>
+              </div>
+              <div class="glint" aria-hidden="true"></div>
+            </div>
+            <p class="hint">Toque nos copos ou arraste a imagem</p>
+            <div class="glasses" id="glasses" role="group" aria-label="Escolha a caipirinha"></div>
+          </div>
+        </div>
+        <div class="bar__info">
+          <div class="dr anim" id="dr" aria-live="polite">
+            <p class="dr__count" id="drCount"></p>
+            <h3 id="drName"></h3>
+            <p class="dr__ing" id="drIng"></p>
+            <p class="dr__txt" id="drTxt"></p>
+            <a class="btn btn--wa" id="drBtn" href="https://wa.me/5527999037895" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Pedir pelo WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTÓRIA -->
+  <section class="band band--sand" id="historia" aria-labelledby="h-hist">
+    <div class="wrap story">
+      <div class="rv">
+        <p class="eyebrow">Nossa história</p>
+        <h2 id="h-hist">Mais que uma refeição, <em>uma experiência capixaba.</em></h2>
+        <p class="big">Localizado na tradicional Ilha das Caieiras, em Vitória, o Ilha da Moqueca valoriza a riqueza da culinária capixaba e a tradição dos sabores do mar. Em um ambiente acolhedor, cercado pelas paisagens dos manguezais e pela beleza da região, cada visita se transforma em uma experiência especial.</p>
+        <div class="cta-row"><a class="btn btn--gold" href="#localizacao">Como chegar</a><a class="btn btn--ghost" href="#galeria">Ver a galeria</a></div>
+      </div>
+      <div class="collage rv" aria-hidden="false">
+        <figure class="a"><img loading="lazy" decoding="async" src="img/salao_porcao.jpg" alt="Salão do restaurante com mesas de toalha verde e janelas para a baía" width="720" height="538" style="object-position:30% 50%"></figure>
+        <figure class="b"><img loading="lazy" decoding="async" src="img/pier.jpg" alt="Mesas de frente para as águas da Ilha das Caieiras, com um prato à frente" width="720" height="538"></figure>
+        <div class="c">sabor<br>da ilha</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="band" id="galeria" aria-labelledby="h-gal">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">Galeria</p>
+        <h2 id="h-gal">Do prato à paisagem, <em>tudo é da ilha.</em></h2>
+        <p class="lede">Toque em uma foto para ampliar.</p>
+      </div>
+      <div class="gal rv" id="gal"></div>
+    </div>
+  </section>
+
+  <!-- RESERVAS -->
+  <section class="band band--deep" id="reservas" aria-labelledby="h-res">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <p class="eyebrow">Reservas e pedidos</p>
+        <h2 id="h-res">Fale com a gente, <em>a mesa é sua.</em></h2>
+        <p class="lede">Tudo pelo WhatsApp. A conversa já abre com a mensagem pronta, é só enviar.</p>
+      </div>
+      <div class="res rv">
+        <a class="card" data-wa="reserva" href="https://wa.me/5527999037895" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9h16M7 9v10M17 9v10M3 19h18M6 9c0-3 2.7-5 6-5s6 2 6 5"/></svg></span><h3>Reservar uma mesa</h3><p>Garanta o seu lugar de frente para a paisagem.</p><span class="go">Reservar →</span></a>
+        <a class="card" data-wa="disponibilidade" href="https://wa.me/5527999037895" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M8 3v4M16 3v4M3.5 10h17M9 15l2 2 4-4"/></svg></span><h3>Consultar disponibilidade</h3><p>Veja se há mesa no dia e horário que você quer.</p><span class="go">Consultar →</span></a>
+        <a class="card" data-wa="contato" href="https://wa.me/5527999037895" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 0 1-11.6 7.1L4 20l1-4.2A8 8 0 1 1 20 12z"/><path d="M9 11h6M9 14h4"/></svg></span><h3>Falar com o restaurante</h3><p>Dúvidas, grupos, eventos ou qualquer outro assunto.</p><span class="go">Conversar →</span></a>
+        <a class="card" data-wa="pedido" href="https://wa.me/5527999037895" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 9h14l-1.2 9.2a2 2 0 0 1-2 1.8H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 9V7a3 3 0 0 1 6 0v2"/></svg></span><h3>Fazer um pedido</h3><p>Escolha no cardápio e combine tudo direto com a equipe.</p><span class="go">Pedir →</span></a>
+      </div>
+      <div class="numline rv">
+        <span>WhatsApp oficial</span>
+        <b id="phoneTxt">+55 27 99903-7895</b>
+        <button class="copy" id="copyBtn" type="button">Copiar número</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCALIZAÇÃO -->
+  <section class="band band--sand" id="localizacao" aria-labelledby="h-loc">
+    <div class="wrap loc">
+      <div class="loc__info rv">
+        <p class="eyebrow">Localização e experiência</p>
+        <h2 id="h-loc">Seu próximo destino <em>gastronômico.</em></h2>
+        <p class="lede">Almoçar de frente para a baía, entre barcos, manguezais e o cheiro da moqueca saindo da panela. A Ilha das Caieiras é um dos endereços mais tradicionais da gastronomia capixaba.</p>
+        <dl class="addr">
+          <div><dt>Onde fica</dt><dd>Ilha das Caieiras, Vitória – ES</dd></div>
+          <div><dt>Funcionamento</dt><dd id="hours"></dd></div>
+          <div><dt>WhatsApp</dt><dd>+55 27 99903-7895<small>Reservas, pedidos e dúvidas</small></dd></div>
+        </dl>
+        <div class="cta-row">
+          <a class="btn btn--gold" id="goBtn" href="https://www.google.com/maps/dir/?api=1&destination=Restaurante+Ilha+da+Moqueca+Ilha+das+Caieiras+Vit%C3%B3ria+ES" target="_blank" rel="noopener">Como chegar</a>
+          <a class="btn btn--ghost" id="mapBtn" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Ilha+da+Moqueca+Ilha+das+Caieiras+Vit%C3%B3ria+ES" target="_blank" rel="noopener">Abrir no Google Maps</a>
+        </div>
+      </div>
+      <a class="mapcard rv" href="https://www.google.com/maps/search/?api=1&query=Restaurante+Ilha+da+Moqueca+Ilha+das+Caieiras+Vit%C3%B3ria+ES" target="_blank" rel="noopener" aria-label="Abrir a localização do Ilha da Moqueca no Google Maps" style="text-decoration:none">
+        <img loading="lazy" decoding="async" src="img/moqueca_peixe.jpg" alt="Moqueca de peixe sobre a mesa, com mesas e guarda-sóis à beira da água ao fundo" width="720" height="720" style="object-position:50% 30%">
+        <span class="pin" aria-hidden="true"><i></i></span>
+        <span class="mapcard__in"><b>Ilha das Caieiras<br>Vitória – ES</b><span class="btn btn--gold btn--sm">Ver no mapa</span></span>
+      </a>
+    </div>
+  </section>
+</main>
+
+<!-- =============== CARDÁPIO =============== -->
+<main id="view-cardapio" hidden>
+  <section class="mhero">
+    <div class="wrap">
+      <p class="eyebrow">Cardápio</p>
+      <h1 style="font-size:clamp(2.4rem,7vw,4.6rem)">A mesa da ilha, <em>prato a prato.</em></h1>
+      <p class="lede">Arraste para o lado para ver os pratos de cada categoria e toque em "Consultar" para pedir pelo WhatsApp.</p>
+      <label class="msearch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="vh">Buscar no cardápio</span><input id="mq" type="search" placeholder="Buscar prato ou bebida" autocomplete="off" enterkeyhint="search"></label>
+    </div>
+  </section>
+  <div class="mbar"><div class="wrap"><div class="chips" id="chips" role="group" aria-label="Filtrar por categoria"></div></div></div>
+  <div class="wrap" style="padding-bottom:clamp(60px,9vw,110px)">
+    <div id="mrows"></div>
+    <p class="mnote">Valores, ingredientes e disponibilidade são confirmados pelo restaurante no WhatsApp. Variações e acompanhamentos podem mudar conforme o dia.</p>
+  </div>
+</main>
+
+<!-- =============== RODAPÉ =============== -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__grid">
+      <div>
+        <a class="brand" href="#inicio" aria-label="Ilha da Moqueca, início">
+          <svg viewBox="0 0 48 48" fill="none" stroke="#cba55b" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="24" cy="24" r="22.5"/><path d="M9 32c5-4 10-4 15 0s10 4 15 0"/><path d="M13 28c3-6 7-9 11-9s8 3 11 9"/><path d="M24 19V11M24 13c-3-3-7-3-10-1M24 13c3-3 7-3 10-1"/></svg>
+          <span class="brand__t"><b>Ilha da Moqueca</b><small>Ilha das Caieiras</small></span>
+        </a>
+        <p>Culinária capixaba e frutos do mar, à beira-mar, na Ilha das Caieiras, em Vitória – ES.</p>
+      </div>
+      <div><h4>Navegação</h4><ul><li><a href="#inicio">Início</a></li><li><a href="#cardapio">Cardápio</a></li><li><a href="#caipirinhas">Caipirinhas</a></li><li><a href="#galeria">Galeria</a></li></ul></div>
+      <div><h4>Visite</h4><ul><li><a href="#reservas">Reservas</a></li><li><a href="#localizacao">Localização</a></li><li><a href="#historia">Nossa história</a></li></ul></div>
+      <div><h4>Contato</h4><ul id="social"></ul></div>
+    </div>
+    <div class="ftr__end">
+      <q>Ilha da Moqueca — O sabor da tradição capixaba.</q>
+      <small>Ilha das Caieiras · Vitória – ES</small>
+    </div>
+  </div>
+</footer>
+
+<a class="wafab" id="wafab" data-wa="contato" href="https://wa.me/5527999037895" target="_blank" rel="noopener" aria-label="Falar com o restaurante pelo WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg><span>Fale conosco</span></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+  <button class="lb__x" id="lbX" type="button" aria-label="Fechar">✕</button>
+  <div class="lb__stage"><img id="lbImg" alt=""></div>
+  <div class="lb__bar"><p class="lb__cap" id="lbCap"></p><div class="lb__nav"><button id="lbP" type="button" aria-label="Foto anterior">←</button><button id="lbN" type="button" aria-label="Próxima foto">→</button></div></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-wa" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></symbol></defs></svg>
+
+<script>
+/* =====================================================================
+   EDITE AQUI: telefone, mensagens, horários, redes sociais, cardápio e drinks.
+   ===================================================================== */
+const PHONE = '5527999037895';
+const PHONE_LABEL = '+55 27 99903-7895';
+
+const MSG = {
+  reserva:        'Olá! Gostaria de reservar uma mesa no restaurante Ilha da Moqueca.',
+  disponibilidade:'Olá! Gostaria de saber mais sobre o restaurante Ilha da Moqueca e consultar a disponibilidade para uma reserva.',
+  contato:        'Olá! Vim pelo site e gostaria de falar com o restaurante Ilha da Moqueca.',
+  pedido:         'Olá! Gostaria de fazer um pedido no restaurante Ilha da Moqueca.'
+};
+
+// Horário de funcionamento. Preencha HOURS_LIST (dia, horário) quando tiver os horários oficiais.
+const HOURS_TEXT = 'Consulte os dias e horários de funcionamento pelo WhatsApp.';
+const HOURS_LIST = [];   // exemplo: [['Quarta a domingo','11h às 17h']]
+
+// Redes sociais: deixe vazio para ocultar. Exemplo: instagram:'https://www.instagram.com/seuperfil'
+const SOCIAL = { instagram:'', facebook:'' };
+const MAPS_QUERY = 'Restaurante Ilha da Moqueca Ilha das Caieiras Vitória ES';
+
+// Cardápio. Preço vazio mostra "Valor sob consulta". Escreva o valor, por exemplo 'R$ 00,00', quando tiver.
+const CATS = {
+  tipicos:{label:'Pratos típicos capixabas'},
+  entradas:{label:'Entradas e acompanhamentos'},
+  drinks:{label:'Drinks e bebidas'}
+};
+const MENU = [
+  {cat:'tipicos',name:'Moqueca capixaba',img:'img/moqueca_barro.jpg',alt:'Moqueca capixaba em panela de barro com acompanhamentos',desc:'O prato símbolo do Espírito Santo, servido na panela de barro com os acompanhamentos da casa.',price:''},
+  {cat:'tipicos',name:'Moqueca de peixe',img:'img/moqueca_peixe.jpg',alt:'Moqueca de peixe na panela de barro, com a praia ao fundo',desc:'Preparada na panela de barro, ao estilo capixaba. Consulte os peixes do dia.',price:''},
+  {cat:'tipicos',name:'Moqueca de camarão',img:'img/camarao_salao.jpg',alt:'Moqueca de camarão na panela de barro no salão do restaurante',desc:'Camarões na panela de barro, para quem prefere os sabores do mar.',price:''},
+  {cat:'tipicos',name:'Peixadas',img:'img/peixada.jpg',alt:'Travessas de peixe frito com camarões, arroz, fritas e vinagrete',desc:'Travessas generosas para dividir à mesa. Consulte as opções e o serviço por pessoas.',price:''},
+  {cat:'tipicos',name:'Camarões',img:'img/hero.jpg',alt:'Camarões na panela de barro com vista para a baía',desc:'Camarões servidos quentes na panela, com a vista da ilha ao lado.',price:''},
+  {cat:'tipicos',name:'Camarão no coco',img:'img/coco.jpg',alt:'Camarão servido dentro de um coco verde, com batata frita e uma cerveja',desc:'Apresentação servida no coco, um dos pratos mais fotografados da casa.',price:''},
+  {cat:'tipicos',name:'Paella de frutos do mar',img:'img/paella_topo.jpg',alt:'Paella de frutos do mar com camarões e polvo, vista de cima',desc:'Arroz com frutos do mar, servido na panela. Consulte a disponibilidade.',price:''},
+  {cat:'tipicos',name:'Paella com camarões',img:'img/paella_praia.jpg',alt:'Paella com camarões sobre a mesa, com a praia ao fundo',desc:'Outra versão da paella da casa. Consulte os ingredientes do dia.',price:''},
+  {cat:'entradas',name:'Porção de frutos do mar',img:'img/salao_porcao.jpg',alt:'Porção de frutos do mar empanados com limão, em mesa do salão',desc:'Para abrir a mesa, com limão e molho. Consulte o tamanho e os acompanhamentos.',price:''},
+  {cat:'entradas',name:'Porção mista',img:'img/porcao_mista.jpg',alt:'Porção com peixe empanado, batata frita, banana frita e molho',desc:'Petisco para compartilhar, com fritas e acompanhamentos.',price:''},
+  {cat:'entradas',name:'Petisco de carne com fritas',img:'img/pier.jpg',alt:'Petisco de carne com fritas e azeitonas, em mesa à beira da água',desc:'Servido na travessa de barro, para beliscar de frente para a água.',price:''},
+  {cat:'entradas',name:'Acompanhamentos tradicionais',img:'img/moqueca_barro.jpg',pos:'92% 50%',alt:'Tigelas de acompanhamentos ao lado da moqueca',desc:'Os acompanhamentos que chegam com a moqueca. Consulte as opções.',price:''},
+  {cat:'drinks',name:'Caipirinha tradicional de limão',img:'img/caip_limao.jpg',pos:'50% 62%',alt:'Caipirinha de limão com gelo e fatias de limão',desc:'O clássico brasileiro, bem gelado.',price:''},
+  {cat:'drinks',name:'Caipirinhas',img:'img/caip_dourada.jpg',pos:'50% 55%',alt:'Caipirinha em copo lapidado com gelo e limão',desc:'Tradicional e de frutas. Consulte os sabores disponíveis.',price:''},
+  {cat:'drinks',name:'Drinks tropicais',img:'img/drink_morango.jpg',pos:'62% 60%',alt:'Drink gelado de morango em taça, com a baía ao fundo',desc:'Drinks gelados e coloridos para o calor da ilha. Consulte as opções.',price:''},
+  {cat:'drinks',name:'Sucos naturais',icon:'fruit',desc:'Sucos naturais para acompanhar o almoço. Consulte os sabores do dia.',price:''},
+  {cat:'drinks',name:'Bebidas diversas',icon:'glass',desc:'Cervejas, refrigerantes, água e outras bebidas. Consulte a carta.',price:''}
+];
+
+// Caipirinhas do banner. Para usar suas próprias fotos, troque "img" (ou "svg") por 'img/arquivo.jpg'.
+const DRINKS = [
+  {key:'limao',short:'Limão',name:'Caipirinha tradicional de limão',ing:'Cachaça, limão, açúcar e gelo',txt:'O clássico que nunca sai de moda: ácida, fresca e bem gelada, do jeito que o calor da ilha pede.',img:'img/caip_limao.jpg',alt:'Caipirinha de limão com gelo e fatias de limão',fruit:['#5d9a1e','#cfe86f','#8dc13a']},
+  {key:'morango',short:'Morango',name:'Caipirinha de morango',ing:'Cachaça, morango, açúcar e gelo',txt:'Doce na medida, com a cor e o perfume do morango. Combina com a tarde à beira-mar.',img:'img/drink_morango_stage.jpg',alt:'Drink de morango gelado em taça, com mesas e guarda-sóis ao fundo',fruit:['#b52b3c','#f0788a','#d9485c']},
+  {key:'maracuja',short:'Maracujá',name:'Caipirinha de maracujá',ing:'Cachaça, maracujá, açúcar e gelo',txt:'Azedinha e aromática, com a polpa do maracujá em cada gole.',svg:{top:'#f8d255',bot:'#e69a1c',garnish:'passion',seeds:true},fruit:['#dfa317','#f6cf55','#e6b63a']},
+  {key:'tropical',short:'Tropical',name:'Caipirinha de frutas tropicais',ing:'Cachaça, frutas tropicais, açúcar e gelo',txt:'Uma mistura de frutas tropicais num só copo. Consulte as frutas disponíveis no dia.',svg:{top:'#ffb347',bot:'#ee4a68',garnish:'tropical',seeds:false},fruit:['#e8772e','#f9b45a','#f19a3c']}
+];
+
+const GALLERY = [
+  {l:'Moquecas',src:'img/moqueca_peixe.jpg',r:'t',alt:'Moqueca de peixe na panela de barro com a praia ao fundo'},
+  {l:'Camarões',src:'img/hero.jpg',r:'w',alt:'Camarões na panela de barro diante da baía'},
+  {l:'Drinks',src:'img/drink_morango.jpg',r:'t',alt:'Drink gelado de morango à beira da água'},
+  {l:'Paellas',src:'img/paella_topo.jpg',r:'s',alt:'Paella de frutos do mar vista de cima'},
+  {l:'Ambiente',src:'img/salao_porcao.jpg',r:'w',alt:'Salão do restaurante com vista para a baía'},
+  {l:'Peixes',src:'img/peixada.jpg',r:'w',alt:'Peixada com peixes fritos, camarões e fritas'},
+  {l:'Frutos do mar',src:'img/porcao_mista.jpg',r:'s',alt:'Porção mista com fritas e banana frita'},
+  {l:'Paisagem',src:'img/pier.jpg',r:'w',alt:'Mesas de frente para a Ilha das Caieiras'},
+  {l:'Moquecas',src:'img/moqueca_barro.jpg',r:'w',alt:'Moqueca capixaba com acompanhamentos'},
+  {l:'Paellas',src:'img/paella_praia.jpg',r:'w',alt:'Paella com camarões e a praia ao fundo'},
+  {l:'Drinks',src:'img/caip_dourada.jpg',r:'t',alt:'Caipirinha em copo lapidado'},
+  {l:'Camarões',src:'img/coco.jpg',r:'t',alt:'Camarão servido no coco, com cerveja gelada'},
+  {l:'Ambiente',src:'img/camarao_salao.jpg',r:'w',alt:'Moqueca de camarão no salão com vista para a água'}
+];
+
+/* =====================================================================
+   Código
+   ===================================================================== */
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const waLink = txt => `https://wa.me/${PHONE}?text=${encodeURIComponent(txt)}`;
+
+/* WhatsApp: links com mensagem personalizada */
+$$('[data-wa]').forEach(a=>{ a.href = waLink(MSG[a.dataset.wa] || MSG.contato); });
+
+/* Horários e redes */
+(function(){
+  const h=$('#hours');
+  if(HOURS_LIST.length){ h.innerHTML=HOURS_LIST.map(([d,t])=>`<span style="display:flex;justify-content:space-between;gap:16px"><span>${d}</span><b>${t}</b></span>`).join(''); }
+  else{ h.textContent=HOURS_TEXT; }
+  const items=[`<li><a href="${waLink(MSG.contato)}" target="_blank" rel="noopener">WhatsApp</a></li>`,
+               `<li><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(MAPS_QUERY)}" target="_blank" rel="noopener">Google Maps</a></li>`];
+  if(SOCIAL.instagram) items.push(`<li><a href="${SOCIAL.instagram}" target="_blank" rel="noopener">Instagram</a></li>`);
+  if(SOCIAL.facebook) items.push(`<li><a href="${SOCIAL.facebook}" target="_blank" rel="noopener">Facebook</a></li>`);
+  $('#social').innerHTML=items.join('');
+})();
+
+/* Copiar número */
+$('#copyBtn').addEventListener('click',async()=>{
+  const b=$('#copyBtn'); const t=PHONE_LABEL;
+  try{ await navigator.clipboard.writeText(t); b.textContent='Número copiado'; }
+  catch(e){ const r=document.createRange(); r.selectNodeContents($('#phoneTxt')); const s=getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent='Número selecionado'; }
+  setTimeout(()=>b.textContent='Copiar número',2200);
+});
+
+/* ---------- Cabeçalho e menu móvel ---------- */
+const hdr=$('#hdr'), burger=$('#burger'), mnav=$('#mnav');
+function setMenu(open){ mnav.hidden=!open; hdr.classList.toggle('is-open',open); burger.setAttribute('aria-expanded',open); burger.setAttribute('aria-label',open?'Fechar menu':'Abrir menu'); }
+burger.addEventListener('click',()=>setMenu(mnav.hidden));
+mnav.addEventListener('click',e=>{ if(e.target.closest('a')) setMenu(false); });
+addEventListener('keydown',e=>{ if(e.key==='Escape' && !mnav.hidden) setMenu(false); });
+
+/* ---------- Rotas: início e cardápio ---------- */
+const vHome=$('#view-home'), vMenu=$('#view-cardapio');
+function route(){
+  const h=location.hash.slice(1);
+  const isMenu = h==='cardapio';
+  vHome.hidden=isMenu; vMenu.hidden=!isMenu;
+  $$('[data-nav]').forEach(a=>{ if(a.dataset.nav==='cardapio' && isMenu) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  document.title = isMenu ? 'Cardápio | Ilha da Moqueca' : 'Ilha da Moqueca';
+  requestAnimationFrame(()=>{
+    if(isMenu){ scrollTo({top:0,behavior:'auto'}); }
+    else if(h && h!=='inicio' && document.getElementById(h)){ document.getElementById(h).scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'}); }
+    else{ scrollTo({top:0,behavior:'auto'}); }
+    observeReveals();
+  });
+}
+addEventListener('hashchange',route);
+
+/* ---------- Revelar ao rolar ---------- */
+let io;
+function observeReveals(){
+  if(!('IntersectionObserver' in window) || reduce){ $$('.rv').forEach(e=>e.classList.add('in')); return; }
+  if(!io) io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target);} }),{rootMargin:'0px 0px -8% 0px',threshold:.08});
+  $$('.rv:not(.in)').forEach(e=>io.observe(e));
+}
+
+/* ---------- Profundidade (parallax leve) e cabeçalho ---------- */
+const heroImg=$('#heroImg'), heroArch=$('#heroArch');
+let tick=false;
+function onScroll(){
+  const y=scrollY;
+  hdr.classList.toggle('is-scrolled',y>30);
+  if(!reduce && y<1400 && !vHome.hidden){
+    heroImg.style.transform=`translate3d(0,${y*.16}px,0) scale(1.04)`;
+    if(heroArch) heroArch.style.transform=`translate3d(0,${y*-.07}px,0)`;
+  }
+  tick=false;
+}
+addEventListener('scroll',()=>{ if(!tick){ tick=true; requestAnimationFrame(onScroll); } },{passive:true});
+
+/* ---------- Trilhos horizontais: setas, arrastar com o mouse e barra de progresso ---------- */
+function initRail(root){
+  const tr=$('.rail__track',root), prev=$('[data-prev]',root), next=$('[data-next]',root), fill=$('.rail__bar i',root);
+  if(!tr) return;
+  const upd=()=>{
+    const max=tr.scrollWidth-tr.clientWidth, tw=tr.scrollWidth||1;
+    if(prev) prev.disabled=tr.scrollLeft<=2;
+    if(next) next.disabled=tr.scrollLeft>=max-2;
+    if(fill){ fill.style.width=Math.min(1,tr.clientWidth/tw)*100+'%'; fill.style.marginLeft=(max>0?tr.scrollLeft/tw*100:0)+'%'; }
+    root.classList.toggle('rail--fit',max<=2);
+  };
+  const step=()=>{ const c=tr.firstElementChild; return (c?c.getBoundingClientRect().width:280)+16; };
+  if(prev) prev.addEventListener('click',()=>tr.scrollBy({left:-step(),behavior:reduce?'auto':'smooth'}));
+  if(next) next.addEventListener('click',()=>tr.scrollBy({left:step(),behavior:reduce?'auto':'smooth'}));
+  tr.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});
+  if('ResizeObserver' in window) new ResizeObserver(upd).observe(tr);
+  let down=false,moved=false,sx=0,sl=0,pid=null;
+  tr.addEventListener('pointerdown',e=>{ if(e.pointerType!=='mouse'||e.button!==0) return; down=true; moved=false; sx=e.clientX; sl=tr.scrollLeft; pid=e.pointerId; });
+  tr.addEventListener('pointermove',e=>{
+    if(!down) return; const dx=e.clientX-sx;
+    if(!moved && Math.abs(dx)>6){ moved=true; tr.classList.add('drag'); try{tr.setPointerCapture(pid)}catch(_){} }
+    if(moved) tr.scrollLeft=sl-dx;
+  });
+  const end=()=>{
+    if(!down) return; down=false;
+    if(!moved) return;
+    tr.classList.remove('drag');
+    const pad=parseFloat(getComputedStyle(tr).paddingLeft)||0, left=tr.getBoundingClientRect().left+pad;
+    let best=0,bd=1e9; [...tr.children].forEach(c=>{ const d=c.getBoundingClientRect().left-left; if(Math.abs(d)<Math.abs(bd)){ bd=d; best=d; } });
+    tr.scrollBy({left:best,behavior:reduce?'auto':'smooth'});
+  };
+  tr.addEventListener('pointerup',end); tr.addEventListener('pointercancel',end);
+  upd();
+}
+
+/* ---------- Cardápio ---------- */
+const ICONS={
+  fruit:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="32" cy="36" r="20"/><circle cx="32" cy="36" r="14"/><path d="M32 22v28M18 36h28M22 26l20 20M42 26L22 46"/><path d="M32 16c0-5 3-8 8-9"/></svg>',
+  glass:'<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M16 10h32l-4 40a4 4 0 0 1-4 4H24a4 4 0 0 1-4-4z"/><path d="M18 24h28"/><path d="M38 4l-4 20"/></svg>'
+};
+const RAIL_CTL='<div class="rail__ctl"><button class="rail__btn" type="button" data-prev aria-label="Anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="rail__btn" type="button" data-next aria-label="Próximo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>';
+const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
+const chips=$('#chips'), mrows=$('#mrows'), mq=$('#mq');
+let curCat='todos', query='';
+const matches=m=>!query||norm(m.name+' '+m.desc).includes(query);
+function renderChips(){
+  const all=[['todos','Todos',MENU.filter(matches).length],...Object.entries(CATS).map(([k,v])=>[k,v.label,MENU.filter(m=>m.cat===k&&matches(m)).length])];
+  chips.innerHTML=all.map(([k,l,n])=>`<button class="chip" type="button" data-cat="${k}" aria-pressed="${k===curCat}">${l}<small>${n}</small></button>`).join('');
+}
+function cardHTML(m,i){
+  const ph = m.img
+    ? `<div class="mcard__ph"><img loading="lazy" decoding="async" draggable="false" src="${m.img}" alt="${m.alt||m.name}" width="720" height="540"${m.pos?` style="object-position:${m.pos}"`:''}></div>`
+    : `<div class="mcard__ph noimg" role="img" aria-label="${m.name}">${ICONS[m.icon]||ICONS.glass}</div>`;
+  const price = m.price ? `<span class="price">${m.price}</span>` : `<span class="price price--ask">Valor sob consulta</span>`;
+  const msg = `Olá! Gostaria de consultar/pedir: ${m.name}.`;
+  return `<article class="mcard" style="animation-delay:${Math.min(i,6)*50}ms">${ph}<div class="mcard__b"><p class="tag">${CATS[m.cat].label}</p><h3>${m.name}</h3><p class="d">${m.desc}</p><div class="mcard__f">${price}<a class="btn btn--wa btn--sm" href="${waLink(msg)}" target="_blank" rel="noopener" draggable="false"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#i-wa"/></svg>Consultar</a></div></div></article>`;
+}
+function renderMenu(){
+  const html=Object.entries(CATS).filter(([k])=>curCat==='todos'||k===curCat).map(([k,c])=>{
+    const items=MENU.filter(m=>m.cat===k&&matches(m));
+    if(!items.length) return '';
+    return `<section class="mrow rail" data-rail aria-label="${c.label}"><div class="rail__head"><div><p class="tag">${items.length} ${items.length>1?'opções':'opção'}</p><h2>${c.label}</h2></div>${RAIL_CTL}</div><div class="rail__track">${items.map(cardHTML).join('')}</div><div class="rail__bar" aria-hidden="true"><i></i></div></section>`;
+  }).join('');
+  mrows.innerHTML = html || `<p class="mempty">Nenhum item encontrado para "${query.replace(/[<>&"]/g,'')}". Tente outra palavra ou fale com a gente pelo WhatsApp.</p>`;
+  $$('[data-rail]',mrows).forEach(initRail);
+}
+chips.addEventListener('click',e=>{ const b=e.target.closest('.chip'); if(!b) return; curCat=b.dataset.cat; renderChips(); renderMenu(); scrollTo({top:Math.max(0,$('.mbar').offsetTop-80),behavior:reduce?'auto':'smooth'}); });
+mq.addEventListener('input',()=>{ query=norm(mq.value.trim()); renderChips(); renderMenu(); });
+renderChips(); renderMenu();
+$$('#view-home [data-rail]').forEach(initRail);
+
+/* ---------- Galeria + ampliação ---------- */
+const gal=$('#gal');
+gal.innerHTML=GALLERY.map((g,i)=>`<figure class="r-${g.r}"><button type="button" data-i="${i}" aria-label="Ampliar foto: ${g.l}"><img loading="lazy" decoding="async" src="${g.src}" alt="${g.alt}" width="720" height="540"><span class="lbl">${g.l}</span></button></figure>`).join('');
+const lb=$('#lb'), lbImg=$('#lbImg'), lbCap=$('#lbCap'); let li=0, lastFocus=null;
+function showLb(i){ li=(i+GALLERY.length)%GALLERY.length; const g=GALLERY[li]; lbImg.src=g.src; lbImg.alt=g.alt; lbCap.textContent=g.l; }
+function openLb(i){ lastFocus=document.activeElement; showLb(i); lb.hidden=false; document.body.style.overflow='hidden'; $('#lbX').focus(); }
+function closeLb(){ lb.hidden=true; document.body.style.overflow=''; if(lastFocus) lastFocus.focus(); }
+gal.addEventListener('click',e=>{ const b=e.target.closest('button[data-i]'); if(b) openLb(+b.dataset.i); });
+$('#lbX').addEventListener('click',closeLb);
+$('#lbP').addEventListener('click',()=>showLb(li-1));
+$('#lbN').addEventListener('click',()=>showLb(li+1));
+lb.addEventListener('click',e=>{ if(e.target===lb || e.target.classList.contains('lb__stage')) closeLb(); });
+addEventListener('keydown',e=>{ if(lb.hidden) return; if(e.key==='Escape') closeLb(); if(e.key==='ArrowLeft') showLb(li-1); if(e.key==='ArrowRight') showLb(li+1); });
+
+/* ---------- Banner interativo das caipirinhas ---------- */
+function glassSVG(uid,c){
+  const id=s=>`${s}${uid}`;
+  const seeds = c.seeds ? [[118,208],[132,236],[150,222],[170,250],[140,282],[162,296],[124,306],[176,214],[154,262],[130,262],[184,282],[112,246]].map(([x,y],i)=>`<ellipse cx="${x}" cy="${y}" rx="2.6" ry="3.6" fill="#2b190e" opacity=".78" transform="rotate(${i*37} ${x} ${y})"/>`).join('') : '';
+  const garnish = c.garnish==='passion'
+    ? `<g transform="translate(206 134) rotate(-14)"><circle r="31" fill="#d9a21a"/><circle r="27" fill="#f4edd2"/><circle r="23" fill="#f2a71c"/><g fill="#2b190e" opacity=".85"><ellipse cx="-8" cy="-7" rx="2.6" ry="3.6"/><ellipse cx="6" cy="-10" rx="2.6" ry="3.6"/><ellipse cx="11" cy="4" rx="2.6" ry="3.6"/><ellipse cx="-3" cy="8" rx="2.6" ry="3.6"/><ellipse cx="-13" cy="5" rx="2.6" ry="3.6"/><ellipse cx="1" cy="-1" rx="2.6" ry="3.6"/></g></g>`
+    : `<g transform="translate(206 134) rotate(-10)"><circle r="31" fill="#e8772e"/><circle r="27" fill="#fbe9c8"/><circle r="24" fill="#f9a23b"/><g stroke="#fbe9c8" stroke-width="1.6" stroke-linecap="round"><path d="M0 0V-24M0 0l17-17M0 0h24M0 0l17 17M0 0v24M0 0L-17 17M0 0h-24M0 0L-17 -17"/></g></g><g transform="translate(94 130) rotate(-24)"><ellipse rx="9" ry="22" fill="#3f8a3a"/><path d="M0 -20V20" stroke="#2d6a2b" stroke-width="1.4"/></g><g transform="translate(110 124) rotate(14)"><ellipse rx="8" ry="19" fill="#58a850"/></g>`;
+  const ice=[[112,176,-14,0],[150,164,9,-2],[182,188,22,-4],[128,226,-8,-1],[168,240,16,-3]].map(([x,y,r,d])=>`<rect class="ice" x="${x-18}" y="${y-18}" width="36" height="36" rx="7" fill="rgba(255,255,255,.2)" stroke="rgba(255,255,255,.6)" stroke-width="1.2" transform="rotate(${r} ${x} ${y})" style="animation:bob 6s ${d}s ease-in-out infinite;transform-box:fill-box;transform-origin:center"/>`).join('');
+  const bok=[[40,60,26],[250,50,34],[270,170,20],[30,200,22],[220,20,16]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="#cba55b" opacity=".12"/>`).join('');
+  return `<svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Copo de ${c.top?'caipirinha':''} com gelo">
+  <defs>
+    <radialGradient id="${id('bg')}" cx="50%" cy="38%" r="78%"><stop offset="0" stop-color="#1b4a3b"/><stop offset="1" stop-color="#040f0c"/></radialGradient>
+    <linearGradient id="${id('lq')}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${c.top}"/><stop offset="1" stop-color="${c.bot}"/></linearGradient>
+    <linearGradient id="${id('gl')}" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".6"/><stop offset=".16" stop-color="#fff" stop-opacity=".08"/><stop offset=".82" stop-color="#fff" stop-opacity=".02"/><stop offset="1" stop-color="#fff" stop-opacity=".38"/></linearGradient>
+    <clipPath id="${id('cp')}"><path d="M86 138H214L204 330Q203 344 189 344H111Q97 344 96 330Z"/></clipPath>
+  </defs>
+  <rect width="300" height="400" fill="url(#${id('bg')})"/>${bok}
+  <ellipse cx="150" cy="352" rx="92" ry="10" fill="#000" opacity=".5"/>
+  <path d="M86 138H214L204 330Q203 344 189 344H111Q97 344 96 330Z" fill="rgba(255,255,255,.07)"/>
+  <g clip-path="url(#${id('cp')})"><rect x="80" y="172" width="140" height="180" fill="url(#${id('lq')})" opacity=".94"/><ellipse cx="150" cy="172" rx="66" ry="7" fill="#fff" opacity=".22"/>${seeds}${ice}</g>
+  <path d="M86 138H214L204 330Q203 344 189 344H111Q97 344 96 330Z" fill="url(#${id('gl')})" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
+  <ellipse cx="150" cy="138" rx="64" ry="7" fill="none" stroke="rgba(255,255,255,.7)" stroke-width="1.4"/>
+  ${garnish}
+  <g fill="#fff" opacity=".55"><circle cx="102" cy="250" r="2.2"/><circle cx="198" cy="214" r="2"/><circle cx="108" cy="292" r="1.8"/><circle cx="192" cy="276" r="2.4"/><circle cx="196" cy="310" r="1.6"/></g>
+  </svg>`;
+}
+const slidesEl=$('#slides'), glassesEl=$('#glasses'), bar=$('#caipirinhas'), dr=$('#dr');
+const media=(d,uid)=> d.img ? `<img src="${d.img}" alt="${d.alt}" draggable="false" ${uid>0?'loading="lazy"':''} decoding="async">` : glassSVG(uid,d.svg);
+slidesEl.innerHTML=DRINKS.map((d,i)=>`<div class="slide" data-i="${i}" role="group" aria-roledescription="slide" aria-label="${d.name}">${media(d,'s'+i)}</div>`).join('');
+glassesEl.innerHTML=DRINKS.map((d,i)=>`<button class="gbtn" type="button" data-i="${i}" aria-pressed="false" aria-label="${d.name}"><span class="gbtn__img">${media(d,'t'+i)}</span><span class="gbtn__lbl">${d.short}</span></button>`).join('');
+let cur=-1;
+function select(i,focusBtn){
+  i=(i+DRINKS.length)%DRINKS.length; if(i===cur) return; const first=cur<0; cur=i; const d=DRINKS[i];
+  $$('.slide',slidesEl).forEach((s,k)=>s.classList.toggle('on',k===i));
+  $$('.gbtn',glassesEl).forEach((b,k)=>{ b.setAttribute('aria-pressed',k===i); });
+  $('#drCount').textContent=`Caipirinha ${i+1} de ${DRINKS.length}`;
+  $('#drName').textContent=d.name; $('#drIng').textContent=d.ing; $('#drTxt').textContent=d.txt;
+  $('#drBtn').href=waLink(`Olá! Gostaria de pedir uma ${d.name.toLowerCase().replace(/^caipirinha/,'caipirinha')} no Ilha da Moqueca.`);
+  bar.style.setProperty('--f1',d.fruit[0]); bar.style.setProperty('--f2',d.fruit[1]); bar.style.setProperty('--f3',d.fruit[2]);
+  if(!first && !reduce){ dr.classList.remove('anim'); void dr.offsetWidth; dr.classList.add('anim'); }
+  if(focusBtn) $$('.gbtn',glassesEl)[i].focus({preventScroll:true});
+}
+glassesEl.addEventListener('click',e=>{ const b=e.target.closest('.gbtn'); if(b) select(+b.dataset.i); });
+glassesEl.addEventListener('pointerover',e=>{ if(e.pointerType!=='mouse') return; const b=e.target.closest('.gbtn'); if(b) select(+b.dataset.i); });
+glassesEl.addEventListener('keydown',e=>{ if(e.key==='ArrowRight'){ e.preventDefault(); select(cur+1,true);} if(e.key==='ArrowLeft'){ e.preventDefault(); select(cur-1,true);} });
+/* arrastar a imagem (toque ou mouse) */
+const arch=$('#arch'); let sx=null;
+arch.addEventListener('pointerdown',e=>{ sx=e.clientX; try{arch.setPointerCapture(e.pointerId)}catch(_){} });
+arch.addEventListener('pointerup',e=>{ if(sx===null) return; const dx=e.clientX-sx; sx=null; if(Math.abs(dx)>36) select(cur+(dx<0?1:-1)); });
+arch.addEventListener('pointercancel',()=>{ sx=null; });
+arch.tabIndex=0;
+arch.addEventListener('keydown',e=>{ if(e.key==='ArrowRight') select(cur+1); if(e.key==='ArrowLeft') select(cur-1); });
+select(0);
+
+/* início */
+route();
+onScroll();
+</script>
+</body>
+</html>
